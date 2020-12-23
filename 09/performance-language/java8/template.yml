@@ -1,0 +1,56 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  serverless:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Role: 'acs:ram::1457216987974698:role/aliyunfcgeneratedrole-cn-beijing-serverless'
+      LogConfig: 
+        Project: 'serverless-performance'
+        Logstore: 'fc-log'
+      Description: 'Performance test'
+    performance-java8:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: example.App::handleRequest
+        Initializer: example.App::initialize
+        Runtime: java8
+        MemorySize: 128
+        CodeUri: './'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-java8-1024:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: example.App::handleRequest
+        Initializer: example.App::initialize
+        Runtime: java8
+        MemorySize: 1024
+        CodeUri: './'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-java8-3008:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: example.App::handleRequest
+        Initializer: example.App::initialize
+        Runtime: java8
+        MemorySize: 1024
+        CodeUri: './'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''

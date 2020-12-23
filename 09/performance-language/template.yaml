@@ -1,0 +1,312 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  serverless-performance:
+    Type: 'Aliyun::Serverless::Log'
+    Properties:
+      Description: 'serverless performance log project'
+    fc-log:
+      Type: 'Aliyun::Serverless::Log::Logstore'
+      Properties:
+        TTL: 10
+        ShardCount: 2
+  serverless:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Role: 'acs:ram::1457216987974698:role/aliyunfcgeneratedrole-cn-beijing-serverless'
+      LogConfig: 
+        Project: 'serverless-performance'
+        Logstore: 'fc-log'
+      Description: 'Performance test'
+    invoke:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        MemorySize: 1024
+        Timeout: 300
+        CodeUri: './invoke'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 20m'
+              Enable: true
+              Payload: ''
+    performance-nodejs12:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        MemorySize: 128
+        CodeUri: './nodejs12'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs10:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs10
+        MemorySize: 128
+        CodeUri: './nodejs10'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-python3:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: python3
+        MemorySize: 128
+        CodeUri: './python3'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-php:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: php7.2
+        MemorySize: 128
+        CodeUri: './php'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-golang:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: main
+        Runtime: custom-container
+        Timeout: 60
+        MemorySize: 128
+        CAPort: 8080
+        CodeUri: './golang'
+        CustomContainerConfig:
+          Image: 'registry.cn-beijing.aliyuncs.com/serverless-image/golang:v0.1'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs15:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Runtime: custom-container
+        Timeout: 60
+        CAPort: 8080
+        Handler: not-used
+        MemorySize: 128
+        CodeUri: ./
+        CustomContainerConfig:
+          Image: 'registry.cn-beijing.aliyuncs.com/serverless-image/nodejs15:v0.1'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs12-1024:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        MemorySize: 1024
+        CodeUri: './nodejs12'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs10-1024:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs10
+        MemorySize: 1024
+        CodeUri: './nodejs10'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-python3-1024:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: python3
+        MemorySize: 1024
+        CodeUri: './python3'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-php-1024:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: php7.2
+        MemorySize: 1024
+        CodeUri: './php'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-golang-1024:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: main
+        Runtime: custom-container
+        Timeout: 60
+        MemorySize: 1024
+        CAPort: 8080
+        CodeUri: './golang'
+        CustomContainerConfig:
+          Image: 'registry.cn-beijing.aliyuncs.com/serverless-image/golang:v0.1'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs15-1024:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Runtime: custom-container
+        Timeout: 60
+        CAPort: 8080
+        Handler: not-used
+        MemorySize: 1024
+        CodeUri: ./
+        CustomContainerConfig:
+          Image: 'registry.cn-beijing.aliyuncs.com/serverless-image/nodejs15:v0.1'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs12-3008:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        MemorySize: 3008
+        CodeUri: './nodejs12'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs10-3008:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs10
+        MemorySize: 3008
+        CodeUri: './nodejs10'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-python3-3008:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: python3
+        MemorySize: 3008
+        CodeUri: './python3'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-php-3008:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: php7.2
+        MemorySize: 3008
+        CodeUri: './php'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-golang-3008:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: main
+        Runtime: custom-container
+        Timeout: 60
+        MemorySize: 3008
+        CAPort: 8080
+        CodeUri: './golang'
+        CustomContainerConfig:
+          Image: 'registry.cn-beijing.aliyuncs.com/serverless-image/golang:v0.1'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    performance-nodejs15-3008:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Runtime: custom-container
+        Timeout: 60
+        CAPort: 8080
+        Handler: not-used
+        MemorySize: 3008
+        CodeUri: ./
+        CustomContainerConfig:
+          Image: 'registry.cn-beijing.aliyuncs.com/serverless-image/nodejs15:v0.1'
+      Events:
+        timer:
+          Type: Timer
+          Properties:
+              CronExpression: '@every 1000m'
+              Enable: true
+              Payload: ''
+    

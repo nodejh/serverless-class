@@ -1,0 +1,23 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  serverless:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Role: 'acs:ram::1457216987974698:role/aliyunfcgeneratedrole-cn-beijing-serverless'
+      LogConfig: 
+        Project: 'serverless-performance'
+        Logstore: 'fc-log'
+      Description: 'Performance test'
+    performance-http:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        CodeUri: './'
+      Events:
+        httpTrigger:
+          Type: HTTP
+          Properties:
+            AuthType: ANONYMOUS
+            Methods: ['POST', 'GET']
