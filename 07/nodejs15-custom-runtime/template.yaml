@@ -1,0 +1,29 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  serverless:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Policies:
+        - AliyunContainerRegistryReadOnlyAccess
+      InternetAccess: true
+    nodejs15-express-runtime:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Description: 'HTTP function powered by nodejs express'
+        Runtime: custom-container
+        Timeout: 60
+        CAPort: 8080
+        Handler: not-used
+        MemorySize: 1024
+        CodeUri: ./
+        CustomContainerConfig:
+          Image: 'registry.cn-hangzhou.aliyuncs.com/serverless-image/nodejs15:v0.1'
+          Command: '[ "node"]'
+          Args: '["server.js"]'
+      # Events:
+      #   http-trigger-test:
+      #     Type: HTTP
+      #     Properties:
+      #         AuthType: ANONYMOUS
+      #         Methods: ['GET', 'POST', 'PUT']

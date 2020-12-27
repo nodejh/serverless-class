@@ -1,5 +1,8 @@
 import * as http from 'http';
-// import { sayHello } from './src/user'
+
+function sayHello(name: string): string {
+  return `Hello, ${name}`;
+}
 
 const server = http.createServer(function (req: http.IncomingMessage, res: http.ServerResponse): void {
   const requestId = req.headers["x-fc-request-id"];
@@ -10,7 +13,8 @@ const server = http.createServer(function (req: http.IncomingMessage, res: http.
   });
   req.on('end', function () {
     
-    const body = `Hello, ${rawData}`;
+    // 处理业务逻辑，比如这里是输出欢迎语
+    const body = sayHello(rawData);
 
     res.writeHead(200);
     res.end(body);
@@ -18,8 +22,8 @@ const server = http.createServer(function (req: http.IncomingMessage, res: http.
   });
 });
 
-server.timeout = 0; // never timeout
-server.keepAliveTimeout = 0; // kee palive, never timeout
+server.timeout = 0;
+server.keepAliveTimeout = 0;
 
 server.listen(9000, '0.0.0.0', function () {
   console.log('FunctionCompute typescript runtime initialized.');
