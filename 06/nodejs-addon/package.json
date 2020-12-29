@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-addon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "configure": "node-gyp configure",
+    "build": "node-gyp build",
+    "clean": "node-gyp clean",
+    "rebuild": "node-gyp rebuild"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "gypfile": true,
+  "devDependencies": {
+    "node-gyp": "^7.1.2"
+  }
+}
