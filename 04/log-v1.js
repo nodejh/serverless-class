@@ -1,5 +1,5 @@
 // 获取当前时间, 例如 2020-12-01 12:01:05
-const now = getCurrentTime();
+const now = format(new Date());
 
 // 取前一分钟的整点时间作为开始时间，例如 2020-12-01 12:00:00
 const start_time = getStartTime(now);
