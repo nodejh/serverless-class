@@ -1,4 +1,4 @@
-## 03 代码
+## 03 基础入门
 
  - `express-hello/index.js` 使用 Express.js 框架实现的 Hello World 应用
  - `fc-hello/index.js` [函数计算](https://fc.console.aliyun.com/) Hello World 应用

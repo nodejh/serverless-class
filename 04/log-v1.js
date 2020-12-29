@@ -2,9 +2,9 @@
 const now = getCurrentTime();
 
 // 取前一分钟的整点时间作为开始时间，例如 2020-12-01 12:00:00
-const start_time = getStartTime();
+const start_time = getStartTime(now);
 // 取当前分钟的整点时间作为开始时间，例如 2020-12-01 12:01:00
-const end_time = getEndTime();
+const end_time = getEndTime(now);
 
 // 日志服务 Client 实例，可以用来查询日志
 const client = new Client();
