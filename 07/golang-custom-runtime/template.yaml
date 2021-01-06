@@ -1,0 +1,21 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  serverless:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Policies:
+        - AliyunContainerRegistryReadOnlyAccess
+      InternetAccess: true
+    golang-runtime:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Description: 'Golang Runtime'
+        Runtime: custom-container
+        Timeout: 60
+        CAPort: 8080
+        Handler: not-used
+        MemorySize: 1024
+        CodeUri: ./
+        CustomContainerConfig:
+          Image: 'registry.cn-hangzhou.aliyuncs.com/serverless-image/golang:v0.1'
