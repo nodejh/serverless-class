@@ -3,10 +3,6 @@ Transform: 'Aliyun::Serverless-2018-04-03'
 Resources:
   serverless:
     Type: 'Aliyun::Serverless::Service'
-    Properties:
-      Policies:
-        - AliyunContainerRegistryReadOnlyAccess
-      InternetAccess: true
     golang-runtime:
       Type: 'Aliyun::Serverless::Function'
       Properties:
