@@ -4,7 +4,7 @@ Resources:
   serverless:
     Type: 'Aliyun::Serverless::Service'
     Properties:
-      Description: 'Serverless Authrization Application'
+      Description: 'Serverless Authorization Application'
     auth-app:
       Type: 'Aliyun::Serverless::Function'
       Properties:
