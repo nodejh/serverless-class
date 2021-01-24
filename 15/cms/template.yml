@@ -1,0 +1,36 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  serverless-cms:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Description: 'helloworld'
+    user-register:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: src/user/register.handler
+        Runtime: nodejs12
+        CodeUri: './'
+    user-login:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: src/user/login.handler
+        Runtime: nodejs12
+        CodeUri: './'
+  ServerlessCMSGroup: # API 网关分组
+    Type: 'Aliyun::Serverless::Api'
+    Properties:
+      StageName: RELEASE
+      DefinitionBody:
+        '/user/register': # 请求的 path
+          post: # 请求的 method
+            x-aliyun-apigateway-api-name: user_register # API 名称
+            x-aliyun-apigateway-fc: # 当请求该 API 时，要触发的函数，
+              arn: acs:fc:::services/${serverless-cms.Arn}/functions/${user-register.Arn}/
+              timeout: 3000
+        '/user/login':
+          post:
+            x-aliyun-apigateway-api-name: user_login
+            x-aliyun-apigateway-fc:
+              arn: acs:fc:::services/${serverless-cms.Arn}/functions/${user-login.Arn}/
+              timeout: 3000
