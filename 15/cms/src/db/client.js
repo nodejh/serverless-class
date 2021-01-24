@@ -9,10 +9,23 @@ const client = new TableStore.Client({
 });
 
 /**
+ * 将对象转换为数组对象
+ * @param {object} obj 待转换对象，例如 { username: 'Jack' }
+ * @return {array<object>} 转换后的数组，例如 [{ username: 'Jack' }]
+ */
+const changeObjectToArray = function (obj) {
+  const res = [];
+  Object.keys(obj).forEach((key) => {
+    res.push({ [key]: obj[key] });
+  });
+  return res;
+};
+
+/**
  * 插入一行数据
  * @param {string} table 表名，如 user
- * @param {array<object>} primary  主键数据，如 [{ username: 'Jack' }]
- * @param {array<object>} colums 列数据，如 [{ password: '123456' }]
+ * @param {object} primary  主键数据，如 { username: 'Jack' }
+ * @param {object} colums 列数据，如 { password: '123456' }
  */
 const createRow = async function (table, primary, colums) {
   const params = {
@@ -21,8 +34,8 @@ const createRow = async function (table, primary, colums) {
       TableStore.RowExistenceExpectation.IGNORE,
       null
     ),
-    primaryKey: primary,
-    attributeColumns: colums,
+    primaryKey: changeObjectToArray(primary),
+    attributeColumns: changeObjectToArray(colums),
     returnContent: {
       returnType: TableStore.ReturnType.Primarykey,
     },
@@ -34,13 +47,12 @@ const createRow = async function (table, primary, colums) {
  * 根据主键查询数据
  *
  * @param {string} table 表名，如 user
- * @param {primary} primary 主键数据，如 [{ username: 'Jack' }]
- * @return {object} 查询结构，如 { username: 'Jack', password: '123456' }
+ * @param {object} primary  主键数据，如 { username: 'Jack' }
  */
 const getRow = async function (table, primary) {
   const params = {
-    tableName: "user",
-    primaryKey: primary,
+    tableName: table,
+    primaryKey: changeObjectToArray(primary),
     maxVersions: 2,
   };
 
@@ -54,8 +66,8 @@ const getRow = async function (table, primary) {
 /**
  * 更新一行数据
  * @param {string} table 表名，如 user
- * @param {array<object>} primary  主键数据，如 [{ username: 'Jack' }]
- * @param {array<object>} colums 需要更新的列数据，如 [{ password: '123456' }]
+ * @param {object} primary  主键数据，如 { username: 'Jack' }
+ * @param {object} colums 列数据，如 { password: '123456' }
  */
 const updateRow = async function (table, primary, data) {
   var params = {
@@ -64,12 +76,8 @@ const updateRow = async function (table, primary, data) {
       TableStore.RowExistenceExpectation.IGNORE,
       null
     ),
-    primaryKey: primary,
-    updateOfAttributeColumns: [
-      {
-        PUT: data,
-      },
-    ],
+    primaryKey: changeObjectToArray(primary),
+    updateOfAttributeColumns: [{ PUT: changeObjectToArray(data) }],
   };
 
   await client.updateRow(params);
@@ -78,7 +86,7 @@ const updateRow = async function (table, primary, data) {
 /**
  * 删除一行数据
  * @param {*} table
- * @param {array<object>} primary  主键数据，如 [{ username: 'Jack' }]
+ * @param {object} primary  主键数据，如 { username: 'Jack' }
  */
 const deleteRow = async function (table, primary) {
   var params = {
@@ -87,7 +95,7 @@ const deleteRow = async function (table, primary) {
       TableStore.RowExistenceExpectation.IGNORE,
       null
     ),
-    primaryKey: primary,
+    primaryKey: changeObjectToArray(primary),
   };
 
   await client.deleteRow(params);

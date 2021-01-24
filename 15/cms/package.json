@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
-    "tablestore": "^5.0.7"
+    "tablestore": "^5.0.7",
+    "uuid": "^8.3.2"
   }
 }

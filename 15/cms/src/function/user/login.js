@@ -1,7 +1,7 @@
 const assert = require("assert");
 const jwt = require('jsonwebtoken');
-const { jwt_secret } = require("../config");
-const client = require("../db/client");
+const { jwt_secret } = require("../../config");
+const client = require("../../db/client");
 
 /**
  * 用户登录
@@ -9,7 +9,7 @@ const client = require("../db/client");
  * @param {string} password 密码
  */
 async function login(username, password) {
-  const user = await client.getRow("user", [{ username }]);
+  const user = await client.getRow("user", { username });
   assert(user && user.password === password);
   const token = jwt.sign({ username: user.username }, jwt_secret);
   return token;

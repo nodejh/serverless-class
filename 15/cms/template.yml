@@ -1,23 +1,49 @@
 ROSTemplateFormatVersion: '2015-09-01'
 Transform: 'Aliyun::Serverless-2018-04-03'
 Resources:
+  # 函数服务
   serverless-cms:
     Type: 'Aliyun::Serverless::Service'
     Properties:
-      Description: 'helloworld'
+      Description: 'Serverless 内容管理系统'
     user-register:
       Type: 'Aliyun::Serverless::Function'
       Properties:
-        Handler: src/user/register.handler
+        Handler: src/function/user/register.handler
         Runtime: nodejs12
         CodeUri: './'
     user-login:
       Type: 'Aliyun::Serverless::Function'
       Properties:
-        Handler: src/user/login.handler
+        Handler: src/function/user/login.handler
         Runtime: nodejs12
         CodeUri: './'
-  ServerlessCMSGroup: # API 网关分组
+    article-create:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: src/function/article/create.handler
+        Runtime: nodejs12
+        CodeUri: './'
+    article-detail:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: src/function/article/detail.handler
+        Runtime: nodejs12
+        CodeUri: './'
+    article-update:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: src/function/article/update.handler
+        Runtime: nodejs12
+        CodeUri: './'
+    article-delete:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: src/function/article/delete.handler
+        Runtime: nodejs12
+        CodeUri: './'
+  # API 网关分组
+  ServerlessCMSGroup: 
     Type: 'Aliyun::Serverless::Api'
     Properties:
       StageName: RELEASE
@@ -34,3 +60,43 @@ Resources:
             x-aliyun-apigateway-fc:
               arn: acs:fc:::services/${serverless-cms.Arn}/functions/${user-login.Arn}/
               timeout: 3000
+        '/article/create':
+          post:
+            x-aliyun-apigateway-api-name: article_create
+            x-aliyun-apigateway-fc:
+              arn: acs:fc:::services/${serverless-cms.Arn}/functions/${article-create.Arn}/
+              timeout: 3000
+        '/article/detail/[article_id]':
+          GET:
+            x-aliyun-apigateway-api-name: article_detail
+            x-aliyun-apigateway-request-parameters:
+              - apiParameterName: 'article_id'
+                location: 'Path'
+                parameterType: 'String'
+                required: 'REQUIRED'
+            x-aliyun-apigateway-fc:
+              arn: acs:fc:::services/${serverless-cms.Arn}/functions/${article-detail.Arn}/
+              timeout: 3000
+        '/article/update/[article_id]':
+          PUT:
+            x-aliyun-apigateway-api-name: article_update
+            x-aliyun-apigateway-request-parameters:
+              - apiParameterName: 'article_id'
+                location: 'Path'
+                parameterType: 'String'
+                required: 'REQUIRED'
+            x-aliyun-apigateway-fc:
+              arn: acs:fc:::services/${serverless-cms.Arn}/functions/${article-update.Arn}/
+              timeout: 3000
+        '/article/delete/[article_id]':
+          DELETE:
+            x-aliyun-apigateway-api-name: article_update
+            x-aliyun-apigateway-request-parameters:
+              - apiParameterName: 'article_id'
+                location: 'Path'
+                parameterType: 'String'
+                required: 'REQUIRED'
+            x-aliyun-apigateway-fc:
+              arn: acs:fc:::services/${serverless-cms.Arn}/functions/${article-delete.Arn}/
+              timeout: 3000
+            

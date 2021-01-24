@@ -1,4 +1,4 @@
-const client = require("../db/client");
+const client = require("../../db/client");
 
 /**
  * 用户注册
@@ -6,7 +6,7 @@ const client = require("../db/client");
  * @param {string} password 密码
  */
 async function register(username, password) {
-  await client.createRow("user", [{ username }], [{ password }]);
+  await client.createRow("user", { username }, { password });
 }
 
 module.exports.handler = function (event, context, callback) {
