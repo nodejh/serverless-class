@@ -4,7 +4,7 @@ export default {
       id: "3f8a198c-60a2-11eb-8932-9b95cd7afc2d",
       title: '开篇词：Serverless 大热，程序员面临的新机遇与挑战',
       content: '可能你会认为 Serverless 是最近两年兴起的技术，实际上，Serverless 概念从 2012 年就提出来了，随后 AWS 在 2014 年推出了第一款 Serverless 产品 Lambda，开启了 Serverless 元年。此后国外 Serverless 生态迅速发展，诞生了如 Serverless Framework、Vercel 等很多优秀的产品。',
-      date: '2020-12-29'
+      date: '2020-12-23'
     },
     {
       id: "5158b100-5fee-11eb-9afa-9b5f85523067",
