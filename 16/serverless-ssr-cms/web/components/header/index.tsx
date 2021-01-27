@@ -9,7 +9,7 @@ function Header() {
             <img className={styles.titleImg} src="https://s0.lgstatic.com/i/image2/M01/03/AD/CgpVE1_giICAEoTzAABHe3l-_iI699.png" alt="title"></img>
         </div>
         <div className={styles.title}>
-            玩转 Serverless 架构
+            《玩转 Serverless 架构》
         </div>
     </div>
   )

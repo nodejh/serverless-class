@@ -1,178 +1,175 @@
 export default {
   data: {
-    cbba934b14f747049187: {
-      data: [
-        {
-          dataNode: [
-            {
-              data: {
-                img: 'http://r1.ykimg.com/053500005E4A3D5E8B74390A990B72DA',
-                title: '会员版：沈腾土味英语笑哭外国人，华晨宇惨被喷成“雪花”'
-              }
-            }
-          ]
-        },
-        {
-          dataNode: [
-            {
-              data: {
-                showName: '王牌对王牌 第五季',
-                heat: '热度 8701',
-                heatIcon: '//gw.alicdn.com/tfs/TB1.hX5CNTpK1RjSZR0XXbEwXXa-42-42.png',
-                updateInfo: '更新至05-03期',
-                mark: {
-                  type: 'SIMPLE',
-                  mediaMarkType: 'VIP',
-                  mediaMarkEnum: {
-                    name: 'SHOW'
-                  },
-                  data: {
-                    text: 'VIP',
-                    color: 'GOLDEN',
-                    colorValue: null,
-                    img: null
-                  }
-                },
-                showImg: false,
-                subTitleList: [
-                  {
-                    subtitle: '热度 8701',
-                    subtitleType: 'PLAY_VV'
-                  },
-                  {
-                    subtitle: '真人秀',
-                    subtitleType: 'GENRE'
-                  },
-                  {
-                    subtitle: '更新至05-03期',
-                    subtitleType: 'EPISODE_TOTAL'
-                  }
-                ]
-              },
-              id: 445804,
-              type: 10010
-            }
-          ]
-        },
-        {
-          id: 51680,
-          type: 10021,
-          componentId: 'h5-detail-recommend',
-          componentName: '猜你喜欢',
-          dataNode: [
-            {
-              data: {
-                heat: '3808',
-                summary: '7.5',
-                img: '//m.ykimg.com/058400005E77C882A9F97D0D3275FD7D',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '终结者',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '终结者州长回归护人类'
-
-              }
-            },
-            {
-              data: {
-                heat: '2027',
-                summary: '8.1',
-                img: '//m.ykimg.com/058400005E764A47A9F97D0D32D80468',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '海王',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '温子仁开启“海鲜盛宴”'
-              }
-            },
-            {
-              data: {
-                heat: '1759',
-                summary: '7.6',
-                img: '//m.ykimg.com/058400005E761C08A9F97D0D32779DE4',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '神奇女侠',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '豪放神奇女侠艳光四射'
-              }
-            },
-            {
-              data: {
-                heat: '1453',
-                summary: '8.4',
-                img: '//m.ykimg.com/058400005E767028A9F97D0D3207ADF3',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '明日边缘',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '阿汤哥孤岛陷死循环'
-              }
-            },
-            {
-              data: {
-                heat: '1698',
-                summary: '7.2',
-                img: 'http://m.ykimg.com/058400005E9D346F46C2E30C90D73518',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '正义联盟',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '孤胆英雄救世正义无敌'
-              }
-            },
-            {
-              data: {
-                heat: '1026',
-                summary: '6.1',
-                img: '//m.ykimg.com/058400005E76706FA9F97D0D32B6C723',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '黑暗塔',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '斯蒂芬金奇幻史诗改编'
-              }
-            },
-            {
-              data: {
-                heat: '1130',
-                summary: '7.3',
-                img: '//m.ykimg.com/058400005E77554DA9F97D0D32CC7251',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '黑豹',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '漫威首位黑人超级英雄'
-              }
-            },
-            {
-              data: {
-                heat: '1106',
-                summary: '8.0',
-                img: '//m.ykimg.com/058400005E76AE64A9F97D0D329783A1',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '超凡蜘蛛侠2',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '反派大联盟挑战蜘蛛侠'
-              }
-            },
-            {
-              data: {
-                heat: '1172',
-                summary: '8.1',
-                img: '//m.ykimg.com/058400005E76CF19A9F97D0D32738506',
-                titleLine: 1,
-                summaryType: 'YOUKU_SCORE',
-                title: '美国狙击手',
-                subtitleType: 'TEN_WORDS',
-                subtitle: '致命神射手生死传奇'
-              }
-            }
-          ],
-          title: '猜你喜欢'
-        }
-      ]
-    }
-  }
-}
+    "3f8a198c-60a2-11eb-8932-9b95cd7afc2d": {
+      title: "Serverless 大热，程序员面临的新机遇与挑战",
+      wordCount: 2540,
+      readingTime: 10,
+      date: "2020-12-23 12:00:00",
+      content: `可能你会认为 Serverless 是最近两年兴起的技术，实际上，Serverless 概念从 2012 年就提出来了，随后 AWS 在 2014 年推出了第一款 Serverless 产品 Lambda，开启了 Serverless 元年。
+  
+  
+  此后国外 Serverless 生态迅速发展，诞生了如 Serverless Framework、Vercel 等很多优秀的产品。只是国内起步比较晚，2017 阿里云和腾讯云才相继发布了国内的 Serverless 产品：函数计算和云函数，这时 Serverless 才开始进入大多数国内开发者的视野，各大厂商开始极力宣传和实践 Serverless，到现在不过短短三年，国内 Serverless 开发进入白热化阶段，周围不管大厂小厂，都开始用 Serverless 解决各自业务中的效率和成本问题。
+  
+  
+  比如，阿里这两年的“双十一”都在用 Serverless 提升应用弹性能力、降低服务器成本；Airbnb 在用 Serverless 做实时分析报警；微博在使用 Serverless 进行图片个性化处理；石墨文档也在用 Serverless 实现实时协作……
+  
+  
+  ## Serverless 带来的机遇
+  
+  
+  Serverless 说白了，就是一种不用关心服务器的架构思想，开发者可以不关心除业务代码之外的事情，进而提高业务的迭代效率，使用的云服务也是用多少付多少，从而节省成本。总的来讲，Serverless 对开发者研发方式的影响是巨大的。
+  
+  
+  对前端工程师来说，曾经你部署一个 BFF 或者服务端渲染应用，要购买机器、安装环境，甚至考虑负载均衡、分布式缓存、流量控制等复杂后端问题，而 Serverless 把这些能力封装成服务，让你开箱即用，解决你不会服务器运维的困难。另外，由于 Serverless 把后端变得很简单，甚至前端工程师自己就可以独立完成整个应用开发了，再加上前端工程师离用户最近，所以前端可以成为产品负责人。
+  
+  
+  而且虽然 Serverless 时代已经来临，但国内 Serverless 生态距离国外还有不小差距，国外关于 Serverless 的开发框架、WebIDE 等技术已经比较成熟，而国内还处于发展初期，这种“差距”对于国内前端工程师来说是个很好的机会。
+  
+  
+  当然，Serverless 对后端工程师也有很大的影响，虽然关注 Serverless 的前端人数的确比后端要多，但掌握 Serverless 技术，对后端工程师极为必要。因为基于 Serverless，后端工程师不用再关心系统运维，可以专注于业务开发，深入业务细节，使业务快速迭代，帮助业务成功。另一方面，后端工程师也可以深入底层去构建 Serverless 基础设施，让技术为更多开发者服务。
+  
+  
+  而且就算我不说你也能发现，不管是前端岗位还是后端岗位，大家更喜欢有 Serverless 开发经验的同学。腾讯、头条等国内很多大型互联网公司也都在招聘 Serverless 架构师，并且薪资非常高，极大反映出各大厂对 Serverless 技术人才的积极态度。
+  
+  
+  我作为面试官也认为：如果一个开发者会 Serverless，那说明他很关注前沿技术，未来可以以更高效率、更低成本的方式为公司完成业务创造价值，从而给公司带来产品和技术上的领先。
+  
+  
+  ## 课程设计
+  
+  
+  我和拉勾教育合作了这门课，希望能脱离具体云产品平台的限制，聚焦在 Serverless 技术本身，循序渐进地从概念到开发基础帮你逐渐理清知识盲区，形成知识体系，再通过真实的落地经验与典型的场景案例，让你真正理解和学会运用 Serverless。
+  
+  
+  整体上讲，我把课程划分为四个模块。
+  
+  
+  - **概念篇：** 从云计算发展历程的角度，为你深度剖析 Serverless 兴起的必然因素，让你建立对 Serverless 的宏观认知，然后通过一个案例带你理解 Serverless 这个概念。
+  - **开发基础篇：** 我会从一个开发者的视角，从应用设计、开发、测试、部署的整个流程，为你解释开发 Serverless 应用的基础知识，帮你理清知识盲点。学完之后，你就可以开发一个简单的 Serverless 应用了。
+  - **开发进阶篇：** 鉴于市面上比较缺乏大规模 Serverless 应用的实践经验，我会针对系统迁移难、厂商依赖强、经济成本高、应用不安全等开发者关心的痛点问题，将我在大型 Serverless 架构中总结的相关经验分享给你。学完之后，你就能更好地进行 Serverless 技术选型，基于 Serverless 开发复杂业务。
+  - **场景案例篇：** 我会选择一些开发者比较常见且十分典型的真实场景案例（比如基于 Serverless 实现弹性可扩展的 Restful API 系统），带你将前面学习到的理论知识运用于实践，从零开始设计开发一个复杂的 Serverless 应用，深刻感受 Serverless 给开发模式带来的改变，以及开发效率的提升。
+  
+  
+  
+  为了让你更全面地了解 Serverless，我还特地为你画了一张学习路径图：
+  
+  
+  ![image.png](https://s0.lgstatic.com/i/image/M00/8C/5B/Ciqc1F_r8Z6APJcVAA2iRurEGFE180.png)
+  
+  
+  ## 讲师寄语
+  
+  
+  虽然 Serverless 技术还比较新，但我相信它终会成为技术架构的主流，因为成本和效率永远是开发者和企业最关心的两大问题。
+  
+  
+  技术新意味着你有更多的机会，越早学习、实践就越能占领技术先机。希望你能通过这门课，构建自己的 Serverless 知识体系，并将知识灵活地运用到实际工作中去解决业务问题。
+  
+  
+  最后，学习是相互的，你在学习过程中有任何收获或感想，以及任何关于 Serverless 落地实践的困难与经验，都欢迎在评论区留言，与我沟通交流。
+      `,
+    },
+    "5158b100-5fee-11eb-9afa-9b5f85523067": {
+      title: "Serverless 大热，程序员面临的新机遇与挑战",
+      wordCount: 2540,
+      readingTime: 10,
+      date: "2020-12-23 12:00:00",
+      content: `你好，我是老蒋，一个在前端摸爬滚打 7 年的老兵，目前是国内某一线大厂的资深软件工程师。
+  
+  
+  2017 年国内 Serverless 技术刚刚兴起，我就开始使用和推广 Serverless 了，当时，我的团队负责很多前端中后台系统的研发，后端为了方便扩展就把接口设计得很原子化，导致前端渲染一个页面要发几十个请求，前后端联调很痛苦，沟通成本非常高，开发效率也很低。
+  
+  
+  为了提升前端开发效率和页面加载性能，我们用 Node.js 开发了很多 BFF（Backend for Frontend）应用来做接口的聚合裁剪。可随着接入的系统增多，BFF 应用数量和复杂度日趋上升，不仅消耗了大量机器，还导致前端运维成本急剧增高，很多时候都要去排查服务器的问题。
+  
+  
+  机缘巧合下，我抱着试一试的心态引入了 Serverless 来实现 BFF 层，结果让前端从运维中解放出来，同时也减少了不必要的机器资源浪费。
+  
+  
+  从此以后，我便一直在 Serverless 领域深耕和探索，也总结和沉淀了很多关于 Serverless 架构落地的心得，希望通过这门课把这些经验分享给你，让你更加体会到开发的乐趣。
+  
+  
+  ## Serverless 时代已来临
+  
+  
+  可能你会认为 Serverless 是最近两年兴起的技术，实际上，Serverless 概念从 2012 年就提出来了，随后 AWS 在 2014 年推出了第一款 Serverless 产品 Lambda，开启了 Serverless 元年。
+  
+  
+  此后国外 Serverless 生态迅速发展，诞生了如 Serverless Framework、Vercel 等很多优秀的产品。只是国内起步比较晚，2017 阿里云和腾讯云才相继发布了国内的 Serverless 产品：函数计算和云函数，这时 Serverless 才开始进入大多数国内开发者的视野，各大厂商开始极力宣传和实践 Serverless，到现在不过短短三年，国内 Serverless 开发进入白热化阶段，周围不管大厂小厂，都开始用 Serverless 解决各自业务中的效率和成本问题。
+  
+  
+  比如，阿里这两年的“双十一”都在用 Serverless 提升应用弹性能力、降低服务器成本；Airbnb 在用 Serverless 做实时分析报警；微博在使用 Serverless 进行图片个性化处理；石墨文档也在用 Serverless 实现实时协作……
+  
+  
+  ## Serverless 带来的机遇
+  
+  
+  Serverless 说白了，就是一种不用关心服务器的架构思想，开发者可以不关心除业务代码之外的事情，进而提高业务的迭代效率，使用的云服务也是用多少付多少，从而节省成本。总的来讲，Serverless 对开发者研发方式的影响是巨大的。
+  
+  
+  对前端工程师来说，曾经你部署一个 BFF 或者服务端渲染应用，要购买机器、安装环境，甚至考虑负载均衡、分布式缓存、流量控制等复杂后端问题，而 Serverless 把这些能力封装成服务，让你开箱即用，解决你不会服务器运维的困难。另外，由于 Serverless 把后端变得很简单，甚至前端工程师自己就可以独立完成整个应用开发了，再加上前端工程师离用户最近，所以前端可以成为产品负责人。
+  
+  
+  而且虽然 Serverless 时代已经来临，但国内 Serverless 生态距离国外还有不小差距，国外关于 Serverless 的开发框架、WebIDE 等技术已经比较成熟，而国内还处于发展初期，这种“差距”对于国内前端工程师来说是个很好的机会。
+  
+  
+  当然，Serverless 对后端工程师也有很大的影响，虽然关注 Serverless 的前端人数的确比后端要多，但掌握 Serverless 技术，对后端工程师极为必要。因为基于 Serverless，后端工程师不用再关心系统运维，可以专注于业务开发，深入业务细节，使业务快速迭代，帮助业务成功。另一方面，后端工程师也可以深入底层去构建 Serverless 基础设施，让技术为更多开发者服务。
+  
+  
+  而且就算我不说你也能发现，不管是前端岗位还是后端岗位，大家更喜欢有 Serverless 开发经验的同学。腾讯、头条等国内很多大型互联网公司也都在招聘 Serverless 架构师，并且薪资非常高，极大反映出各大厂对 Serverless 技术人才的积极态度。
+  
+  
+  我作为面试官也认为：如果一个开发者会 Serverless，那说明他很关注前沿技术，未来可以以更高效率、更低成本的方式为公司完成业务创造价值，从而给公司带来产品和技术上的领先。
+  
+  
+  ## 学习 Serverless 所面临的挑战
+  
+  
+  虽然开发者开始关注、尝试 Serverless，但在学习中也会遇到很多问题。
+  
+  
+  大部分网络文章对 Serverless 几乎都是概念的介绍，书籍中就算有实践案例也只是简单的 Demo，深度不够。这让开发者的 Serverless 学习过程变得极其困难，很多知识盲点都要自己探索，无法建立自己的知识体系。（比如，Serverless 应用开发的全流程是什么？怎样对 Serverless 函数进行本地调试和编写单元测试？）
+  
+  
+  当然，随着国内云厂商对 Serverless 的支持越来越完善，一些大厂和实践者也开始推出 Serverless 的开发教程，但往往都局限于某个云产品，很容易成为云产品的宣传，不能深入 Serverless 技术本身，不具有普适性。由于 Serverless 本身严重依赖云产品，很容易让开发者被云厂商绑定，比如当开发者选择阿里云之后，就很难迁移到腾讯云，这也是开发者的痛点之一。
+  
+  
+  另外，虽然所有人都在谈论 Serverless，越来越多的企业和开发者开始尝试使用 Serverless，但都还处于探索阶段，落地经验输出还非常少， 更不用说大型 Serverlss 架构项目的落地经验了。这就导致开发者在使用 Serverless 开发复杂业务时缺少经验、容易踩坑，很难将传统应用迁移到 Serverless 架构，开发者需要汲取大厂落地经验，才能更好地使用和发挥出 Serverless 的价值（这正是模块四存在的意义）。
+  
+  
+  ## 课程设计
+  
+  
+  我和拉勾教育合作了这门课，希望能脱离具体云产品平台的限制，聚焦在 Serverless 技术本身，循序渐进地从概念到开发基础帮你逐渐理清知识盲区，形成知识体系，再通过真实的落地经验与典型的场景案例，让你真正理解和学会运用 Serverless。
+  
+  
+  整体上讲，我把课程划分为四个模块。
+  
+  
+  - 概念篇： 从云计算发展历程的角度，为你深度剖析 Serverless 兴起的必然因素，让你建立对 Serverless 的宏观认知，然后通过一个案例带你理解 Serverless 这个概念。
+  - 开发基础篇： 我会从一个开发者的视角，从应用设计、开发、测试、部署的整个流程，为你解释开发 Serverless 应用的基础知识，帮你理清知识盲点。学完之后，你就可以开发一个简单的 Serverless 应用了。
+  - 开发进阶篇： 鉴于市面上比较缺乏大规模 Serverless 应用的实践经验，我会针对系统迁移难、厂商依赖强、经济成本高、应用不安全等开发者关心的痛点问题，将我在大型 Serverless 架构中总结的相关经验分享给你。学完之后，你就能更好地进行 Serverless 技术选型，基于 Serverless 开发复杂业务。
+  - 场景案例篇： 我会选择一些开发者比较常见且十分典型的真实场景案例（比如基于 Serverless 实现弹性可扩展的 Restful API 系统），带你将前面学习到的理论知识运用于实践，从零开始设计开发一个复杂的 Serverless 应用，深刻感受 Serverless 给开发模式带来的改变，以及开发效率的提升。
+  
+  
+  
+  为了让你更全面地了解 Serverless，我还特地为你画了一张学习路径图：
+  
+  
+  ![image.png](https://s0.lgstatic.com/i/image/M00/8C/5B/Ciqc1F_r8Z6APJcVAA2iRurEGFE180.png)
+  
+  
+  ## 讲师寄语
+  
+  
+  虽然 Serverless 技术还比较新，但我相信它终会成为技术架构的主流，因为成本和效率永远是开发者和企业最关心的两大问题。
+  
+  
+  技术新意味着你有更多的机会，越早学习、实践就越能占领技术先机。希望你能通过这门课，构建自己的 Serverless 知识体系，并将知识灵活地运用到实际工作中去解决业务问题。
+  
+  
+  最后，学习是相互的，你在学习过程中有任何收获或感想，以及任何关于 Serverless 落地实践的困难与经验，都欢迎在评论区留言，与我沟通交流。
+      `,
+    },
+  },
+};

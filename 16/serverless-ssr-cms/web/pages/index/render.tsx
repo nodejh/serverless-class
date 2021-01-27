@@ -8,14 +8,13 @@ import styles from "./index.less";
 
 export default (props: SProps) => {
   const { state } = useContext<IContext<IData>>(window.STORE_CONTEXT);
-  // console.log(state?.indexData?.data);
 
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar {...props} isHomePage={true}></Navbar>
       <Header></Header>
 
-      <div className={styles.post}>
+      <div className={styles.container}>
         {state?.indexData?.data.map((item) => (
           <Item
             {...props}

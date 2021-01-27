@@ -12,7 +12,7 @@ function Item(props: Props) {
         <div
           className={styles.title}
           onClick={() =>
-            props.history.push("/detai/574963de-5fee-11eb-85ff-ef14398fc721")
+            props.history.push("/detail/3f8a198c-60a2-11eb-8932-9b95cd7afc2d")
           }
         >
           {props.title}
