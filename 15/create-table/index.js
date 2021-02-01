@@ -1,107 +1,105 @@
-const TableStore = require("tablestore");
+const TableStore = require('tablestore');
+
 
 // 初始化 TableStore client
 const client = new TableStore.Client({
-  accessKeyId: process.env.AK,
-  accessKeySecret: process.env.SK,
-  endpoint: "https://serverless-app.cn-shanghai.ots.aliyuncs.com",
-  instancename: "serverless-cms",
+    accessKeyId: '<your access key>',
+    accessKeySecret: '<your access secret>',
+    endpoint: 'https://serverless-app.cn-shanghai.ots.aliyuncs.com',
+    instancename: 'serverless-app',
 });
+
 
 /**
  * 创建 user 表
- *
- * 参考文档： https://help.aliyun.com/document_detail/100594.html
  */
-async function createUserTable() {
-  const table = {
-    tableMeta: {
-      tableName: "user",
-      primaryKey: [
-        {
-          name: "username", // 用户名
-          type: TableStore.PrimaryKeyType.STRING,
+async function createTableIfNotExist() {
+    const table = {
+        tableMeta: {
+            tableName: 'user',
+            primaryKey: [
+                {
+                    name: 'name',
+                    type: TableStore.PrimaryKeyType.STRING
+                }
+            ],
+            definedColumn: [
+                {
+                    "name": "password",
+                    "type": TableStore.DefinedColumnType.DCT_STRING
+                },
+                {
+                    "name": "age",
+                    "type": TableStore.DefinedColumnType.DCT_INTEGER
+                }
+            ],
         },
-      ],
-      definedColumn: [
-        {
-          name: "password", // 密码
-          type: TableStore.DefinedColumnType.DCT_STRING,
+        reservedThroughput: {
+            capacityUnit: {
+                read: 0,
+                write: 0
+            }
         },
-      ],
-    },
-    // 为数据表配置预留读吞吐量或预留写吞吐量。0 表示不预留吞吐量，完全按量付费
-    reservedThroughput: {
-      capacityUnit: {
-        read: 0,
-        write: 0,
-      },
-    },
-    tableOptions: {
-      // 数据的过期时间，单位为秒，-1表示永不过期
-      timeToLive: -1,
-      // 保存的最大版本数，1 表示每列上最多保存一个版本即保存最新的版本
-      maxVersions: 1,
-    },
-  };
-  await client.createTable(table);
+        tableOptions: {
+            timeToLive: -1,
+            maxVersions: 1
+        },
+    };
+    await client.createTable(table);
 }
 
-/**
- * 创建文章表
- */
-async function createArticleTable() {
-  const table = {
-    tableMeta: {
-      tableName: "article",
-      primaryKey: [
-        {
-          name: "article_id", // 文章 ID，唯一字符串
-          type: TableStore.PrimaryKeyType.STRING,
-        },
-      ],
-      definedColumn: [
-        {
-          name: "title",
-          type: TableStore.DefinedColumnType.DCT_STRING,
-        },
-        {
-          name: "username",
-          type: TableStore.DefinedColumnType.DCT_STRING,
-        },
-        {
-          name: "content",
-          type: TableStore.DefinedColumnType.DCT_STRING,
-        },
-        {
-          name: "create_date",
-          type: TableStore.DefinedColumnType.DCT_STRING,
-        },
-        {
-          name: "update_date",
-          type: TableStore.DefinedColumnType.DCT_STRING,
-        },
-      ],
-    },
-    // 为数据表配置预留读吞吐量或预留写吞吐量。0 表示不预留吞吐量，完全按量付费
-    reservedThroughput: {
-      capacityUnit: {
-        read: 0,
-        write: 0,
-      },
-    },
-    tableOptions: {
-      // 数据的过期时间，单位为秒，-1表示永不过期
-      timeToLive: -1,
-      // 保存的最大版本数，1 表示每列上最多保存一个版本即保存最新的版本
-      maxVersions: 1,
-    },
-  };
 
-  await client.createTable(table);
+async function getUser() {
+    const { row } = await client.getRow({
+        tableName: "user",
+        primaryKey: [
+            {
+                name: 'Jack1'
+            }
+        ]
+    });
+    console.log('user is: ', row)
+
+    const user = {}
+    row.attributes.forEach(item => user[item.columnName] = item.columnValue);
+    console.log(user);
+
+    if (row.primaryKey) {
+        // res.json({
+        //     success: false,
+        //     message: '用户已存在'
+        // });
+        return;
+    }
 }
+
+
+async function createUser() {
+    var params = {
+        tableName: "user",
+        condition: new TableStore.Condition(TableStore.RowExistenceExpectation.EXPECT_NOT_EXIST, null),
+        primaryKey: [
+            {
+                name: 'Jack1'
+            }
+        ],
+        attributeColumns: [
+            { 'password': '123456' },
+            { 'age': 18 }
+        ],
+    };
+
+    await client.putRow(params);
+
+}
+
+
+// (async function () {
+//     await createTableIfNotExist()
+// })()
+
 
 (async function () {
-    await createUserTable();
-  await createArticleTable();
-})();
+    await getUser()
+    // await createUser()
+})()
