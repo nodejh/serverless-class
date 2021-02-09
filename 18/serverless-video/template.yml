@@ -1,0 +1,24 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  serverless-video:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Role: acs:ram::1457216987974698:role/aliyunfclogexecutionrole
+      Description: '基于 Serverless 开发高可用音视频处理系统'
+    get_meta:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        Timeout: 600
+        MemorySize: 256
+        CodeUri: ./.serverless/get_meta
+    # get_duration:
+    #   Type: 'Aliyun::Serverless::Function'
+    #   Properties:
+    #     Handler: index.handler
+    #     Runtime: nodejs12
+    #     Timeout: 600
+    #     MemorySize: 256
+    #     CodeUri: ./serverless/get_meta
