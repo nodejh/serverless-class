@@ -1,12 +1,17 @@
 const { exec, getOssClient, OSS_VIDEO_NAME } = require("../common/utils");
 
+/**
+ * 获取视频元信息
+ * @param {object} client OSS client
+ */
 async function getMeta(client) {
   const filePath = "/tmp/video.mp4";
   await client.get(OSS_VIDEO_NAME, filePath);
-  const command = `ffprobe -v quiet -show_format -show_streams -print_format json -i ${filePath}`;
+  const command = `./ffprobe -v quiet -show_format -show_streams -print_format json -i ${filePath}`;
   const res = await exec(command);
   return res;
 }
+
 
 module.exports.handler = function (event, context, callback) {
   const client = getOssClient(context);

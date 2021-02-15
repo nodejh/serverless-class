@@ -6,6 +6,14 @@ Resources:
     Properties:
       Role: acs:ram::1457216987974698:role/aliyunfclogexecutionrole
       Description: '基于 Serverless 开发高可用音视频处理系统'
+    get_duration:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        Timeout: 600
+        MemorySize: 256
+        CodeUri: ./.serverless/get_duration
     get_meta:
       Type: 'Aliyun::Serverless::Function'
       Properties:
@@ -14,11 +22,27 @@ Resources:
         Timeout: 600
         MemorySize: 256
         CodeUri: ./.serverless/get_meta
-    # get_duration:
-    #   Type: 'Aliyun::Serverless::Function'
-    #   Properties:
-    #     Handler: index.handler
-    #     Runtime: nodejs12
-    #     Timeout: 600
-    #     MemorySize: 256
-    #     CodeUri: ./serverless/get_meta
+    get_video_gif:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        Timeout: 600
+        MemorySize: 256
+        CodeUri: ./.serverless/get_video_gif
+    video_watermark:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        Timeout: 600
+        MemorySize: 512
+        CodeUri: ./.serverless/video_watermark
+    video_transcode:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: index.handler
+        Runtime: nodejs12
+        Timeout: 600
+        MemorySize: 512
+        CodeUri: ./.serverless/video_transcode
